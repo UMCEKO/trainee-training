@@ -18,8 +18,8 @@ def load_model():
     return pipe
 
 
-for i in range(10):
-    seed = 10000 + i
+while True:
+    seed = -1
 
     if seed == -1:
         seed = random.randint(1, 10 ** 10)
@@ -27,7 +27,7 @@ for i in range(10):
 
     pipe = load_model()
     output = pipe(
-        prompt='A unicorn flying on space',
+        prompt=input('Enter a prompt: '),
         negative_prompt='stars',
         num_inference_steps=30,
         generator=generator,
